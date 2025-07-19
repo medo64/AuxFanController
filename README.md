@@ -1,9 +1,18 @@
-# AuxPower1U: FanController
+# AuxFanController
 
 Allows for PWM control of 4 fans based on the on-board temperature reaading.
 
-Ranges:
-* < 40 °C: 10% PWM speed
-* 40-60 °C: 10-50% PWM speed (linear increase)
-* 60-70 °C: 50% PWM speed
-* >70 °C: 100% PWM speed
+Features:
+* supports up to 3 fans
+* temperature controlled speed
+* short startup burst to avoid stall
+
+
+## PWM Ranges
+
+| Temperature |  PWM                      |
+|:-----------:|---------------------------|
+|   < 40 °C   |  10%                      |
+|  40-60 °C   |  10-50% (linear increase) |
+|  60-70 °C   |  50%                      |
+|    >70 °C   | 100%                      |

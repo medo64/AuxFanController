@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>FanController</name>
+            <name>AuxFanController</name>
             <creation-uuid>c070093e-cece-4cb9-af68-10dd9b971f6d</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>UTF-8</sourceEncoding>

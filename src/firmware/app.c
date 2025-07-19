@@ -50,31 +50,27 @@ void startup(void) {
     // * and then goes down to 10%.
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MIN, 0, 0, 0);
+    pwm_set_individual(SPEED_SPEC_MIN, 0, 0);
     __delay_ms(250);
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0, 0);
+    pwm_set_individual(SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0);
     __delay_ms(250);
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MAX, SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0);
+    pwm_set_individual(SPEED_SPEC_MAX, SPEED_SPEC_MIN, SPEED_SPEC_MIN);
     __delay_ms(250);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN, SPEED_SPEC_MIN);
+    pwm_set_individual(SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN);
     __delay_ms(250);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN);
+    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX);
     __delay_ms(250);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX);
-    __delay_ms(250);
-
-    CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN);
+    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN);
     __delay_ms(250);
 }
 
