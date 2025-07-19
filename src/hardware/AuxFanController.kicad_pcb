@@ -2989,7 +2989,7 @@
 		(layer "Edge.Cuts")
 		(uuid "f51c05a0-7122-4ec2-8d0d-5159433cfa57")
 	)
-	(gr_text "AuxFanController AXXXX"
+	(gr_text "AuxFanController BXXXX"
 		(at 39.5 25 90)
 		(layer "F.SilkS")
 		(uuid "5d5821e0-50b0-479d-8605-2c3c8c65136e")
