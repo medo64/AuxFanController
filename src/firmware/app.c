@@ -45,33 +45,40 @@ void main(void) {
 
 void startup(void) {
     // each fan:
-    // * starts at 30% for 0.5 seconds
-    // * goes to full speed for 0.25s
+    // * starts at 30% for 1.5 seconds
+    // * goes to full speed for 0.5s
     // * and then goes down to 10%.
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MIN, 0, 0);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_SPEC_MIN, 0, 0, 0);
+    __delay_ms(500);
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0, 0);
+    __delay_ms(500);
 
     CLRWDT();
-    pwm_set_individual(SPEED_SPEC_MAX, SPEED_SPEC_MIN, SPEED_SPEC_MIN);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_SPEC_MIN, SPEED_SPEC_MIN, SPEED_SPEC_MIN, 0);
+    __delay_ms(500);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_SPEC_MAX, SPEED_SPEC_MIN, SPEED_SPEC_MIN, SPEED_SPEC_MIN);
+    __delay_ms(500);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN , SPEED_SPEC_MIN);
+    __delay_ms(500);
 
     CLRWDT();
-    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN);
-    __delay_ms(250);
+    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX, SPEED_SPEC_MIN);
+    __delay_ms(500);
+
+    CLRWDT();
+    pwm_set_individual(SPEED_USE_MIN, SPEED_USE_MIN, SPEED_USE_MIN, SPEED_SPEC_MAX);
+    __delay_ms(500);
+
+    CLRWDT();
+    pwm_set_all(SPEED_USE_MIN);
 }
 
 void init(void) {
