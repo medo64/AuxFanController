@@ -8,7 +8,7 @@
 #define SPEED_SPEC_MIN   77  //  30%
 #define SPEED_SPEC_MAX  255  // 100%
 #define SPEED_USE_MIN    26  //  10%
-#define SPEED_USE_MAX   128  //  50%
+#define SPEED_USE_MAX   191  //  75%
 
 void startup(void);
 
@@ -27,18 +27,18 @@ void main(void) {
         uint8_t temperatureAvg = (uint8_t)(temperatureSum >> 3);  // take average from previous run
         temperatureSum = (temperatureSum - temperatureAvg) + temperatureNew;  // add new measure in
 
+        uint8_t pwm;
         if (temperatureAvg < 40) {  // minimum fan speed up to 40 °C
-            pwm_set_all(SPEED_USE_MIN);
-        } else if (temperatureAvg < 60) {  // linear increase 40-60 °C
-            uint8_t scaleSpeedPerC = (SPEED_USE_MAX - SPEED_USE_MIN) / 20;
+            pwm = SPEED_USE_MIN;
+        } else if (temperatureAvg < 80) {  // linear increase 40-80 °C
+            uint8_t scaleSpeedPerC = (SPEED_USE_MAX - SPEED_USE_MIN) / 40;
             uint8_t scaleT = temperatureAvg - 40;
-            pwm_set_all(SPEED_USE_MIN + scaleSpeedPerC * scaleT);
-        } else if (temperatureAvg < 70) {  // higher speed up to 70 °C
-            pwm_set_all(SPEED_USE_MAX);
-        } else {  // max speed if higher than 70 °C
-            pwm_set_all(SPEED_SPEC_MAX);
+            pwm = SPEED_USE_MIN + scaleSpeedPerC * scaleT;
+        } else {  // max speed if higher than 80 °C
+            pwm = SPEED_SPEC_MAX;
         }
 
+        pwm_set_all(pwm);
         __delay_ms(100);  // delay speed changes a bit
     }
 }
