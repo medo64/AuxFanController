@@ -5,7 +5,7 @@
 #include "adc.h"
 #include "pwm.h"
 
-#define SPEED_SPEC_MIN   85  //  30%
+#define SPEED_SPEC_MIN   77  //  30%
 #define SPEED_SPEC_MAX  255  // 100%
 #define SPEED_USE_MIN    26  //  10%
 #define SPEED_USE_MAX   128  //  50%
